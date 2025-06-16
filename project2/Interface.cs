@@ -12,6 +12,7 @@
             Console.ResetColor();
         }
         public string Try(Gameplay gm, string[] listOfWords)
+        #region
         {
             Console.Write("Make your guess: ");
 
@@ -35,10 +36,14 @@
                         break;
                     }
                 }
+                if (error)
+                {
+                    continue;
+                }
 
                 if (!listOfWords.Contains(guess))
                 {
-                    Console.WriteLine("  Not a real word\nMake a valid guess: ");
+                    Console.Write("  Not a real word\nMake a valid guess: ");
                     continue;
                 }
 
@@ -50,6 +55,7 @@
 
 
         }
+        #endregion
         public void WriteWord(Gameplay gm, string guess)
         {
             //gm.Comparer(guess, gm.Choice);
@@ -181,6 +187,7 @@
             else
             {
                 Console.Write($"|{char.ToUpper(guess[4])}| ");
+                Console.WriteLine("");
             }
             #endregion
         }

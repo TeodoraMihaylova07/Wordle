@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace project2
 {
-    internal class Player
+    class Player
     {
         private string name;
         private int guesses;
+        private List<Gameplay> gameplays;
         public Player() { }
         public Player(int id) { }
 
         public string Name { get => name; set => name = value; }
         public int Guesses { get => guesses; set => guesses = value; }
+        public List<Gameplay> Gameplays { get => gameplays; set => gameplays = value; }
     }
 }
