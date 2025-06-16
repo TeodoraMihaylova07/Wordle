@@ -34,6 +34,15 @@
                 }
             }
         }
+        public string ChoiceToString()
+        {
+            string result = "";
+            foreach(char c in this.choice)
+            {
+                result += c;
+            }
+            return result;
+        }
 
     }
 }

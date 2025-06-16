@@ -22,17 +22,33 @@
                 words[5756] = "chime";
             }
 
-            View view = new View();
-            view.Wordle();
-
-            Gameplay gm = new Gameplay();
-            gm.ChooseWord(words);
-            for (int j = 0; j < 6; j++)
+            while (true)
             {
-                view.WriteWord(gm, view.Try(gm, words));
+                View view = new View();
+                Console.WriteLine("");
+                view.Wordle();
+
+                Gameplay gm = new Gameplay();
+                gm.ChooseWord(words);
+                bool guessed = false;
+                for (int j = 0; j < 6; j++)
+                {
+                    string guess = view.Try(gm, words);
+                    if (guess == gm.ChoiceToString())
+                    {
+                        Console.WriteLine("          GAME WON :)\n          CONGRATULATIONS");
+                        guessed = true;
+                        break;
+                    }
+                    view.WriteWord(gm, guess);
+                }
+                if (!guessed)
+                {
+                    Console.WriteLine($"\n          GAME LOST :(\n          Word: {gm.ChoiceToString().ToUpper()}");
+                }
+
             }
 
-            Console.WriteLine(gm.Choice);
 
 
         }
